@@ -1,5 +1,8 @@
 # **StumBall | Battle the Web**
 
+
+[visit landing page: https://neomarkiss.github.io/all_dot_coms/]
+
 **StumBall** is the next-generation web discovery engine. We are bringing the serendipitous discovery of the classic "StumbleUpon" era into a competitive, gamified modern web.
 
 [You have officially moved from "concept" to "architecture." By separating the **Portal (Global Ledger)** from the **Add-on (Local Session/Agent)**, you have successfully decoupled the global reputation of a link from the private browsing activity of the user.
