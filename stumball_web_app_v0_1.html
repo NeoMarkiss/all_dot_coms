@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StumBall | Battle the Web</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .cyber-border { border: 1px solid #3b82f6; }
+        .stumble-gradient { background: linear-gradient(135deg, #1e3a8a, #7e22ce); }
+        .tab-active { border-bottom: 2px solid #3b82f6; color: white; }
+        .tab-inactive { color: #6b7280; }
+    </style>
+</head>
+<body class="bg-gray-950 text-white font-sans antialiased">
+
+    <nav class="p-4 flex justify-between items-center border-b border-gray-800">
+        <div class="flex items-center gap-2">
+            <i class="fas fa-bolt text-blue-500 text-2xl"></i>
+            <h1 class="text-xl font-bold tracking-tighter">STUM<span class="text-blue-400">BALL</span></h1>
+        </div>
+        <span class="text-yellow-400 font-mono text-sm"><i class="fas fa-coins mr-1"></i> 1,250 SC</span>
+    </nav>
+
+    <div class="sticky top-0 z-50 bg-gray-950/90 backdrop-blur-md p-4 border-b border-gray-800">
+        <div class="max-w-2xl mx-auto flex gap-2">
+            <input type="text" id="searchInput" placeholder="Search for battles or categories..." 
+                   class="w-full bg-gray-900 border border-gray-700 p-3 rounded-lg focus:outline-none focus:border-blue-500"
+                   onkeyup="handleSearch(this.value)">
+            <button class="bg-blue-600 px-6 rounded-lg font-bold hover:bg-blue-500">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+    </div>
+
+    <main class="max-w-4xl mx-auto p-6">
+        <div class="flex gap-8 mb-6 border-b border-gray-800">
+            <button onclick="switchTab('battle')" id="btn-battle" class="tab-active pb-2 font-bold">BATTLE ARENA</button>
+            <button onclick="switchTab('discover')" id="btn-discover" class="tab-inactive pb-2 font-bold">DISCOVER</button>
+        </div>
+
+        <div id="content-area" class="min-h-[400px]">
+            <!-- Dynamic Content -->
+        </div>
+    </main>
+
+    <script>
+        // Mock data for search simulation
+        const contentData = [
+            { id: 1, title: "The Future of AI", category: "Tech", battle: "News vs Op-Ed" },
+            { id: 2, title: "Why AI is a Bubble", category: "Market", battle: "News vs Op-Ed" },
+            { id: 3, title: "Digital Art Renaissance", category: "Art", battle: "Design vs Function" }
+        ];
+
+        function switchTab(tab) {
+            const area = document.getElementById('content-area');
+            const btnBattle = document.getElementById('btn-battle');
+            const btnDiscover = document.getElementById('btn-discover');
+
+            if (tab === 'battle') {
+                btnBattle.className = "tab-active pb-2 font-bold";
+                btnDiscover.className = "tab-inactive pb-2 font-bold";
+                area.innerHTML = `<div class="p-8 border border-gray-800 rounded-xl text-center">Battle Arena active...</div>`;
+            } else {
+                btnBattle.className = "tab-inactive pb-2 font-bold";
+                btnDiscover.className = "tab-active pb-2 font-bold";
+                area.innerHTML = `<div id="results">Discover content...</div>`;
+            }
+        }
+
+        function handleSearch(query) {
+            const resultsDiv = document.getElementById('results');
+            if (!resultsDiv) return;
+
+            const filtered = contentData.filter(item => 
+                item.title.toLowerCase().includes(query.toLowerCase())
+            );
+
+            resultsDiv.innerHTML = filtered.map(item => `
+                <div class="p-4 mb-3 bg-gray-900 rounded border border-gray-800 hover:border-blue-500 cursor-pointer">
+                    <h4 class="font-bold">${item.title}</h4>
+                    <p class="text-xs text-blue-400">${item.battle}</p>
+                </div>
+            `).join('');
+        }
+
+        // Initialize view
+        switchTab('battle');
+    </script>
+</body>
+</html>
