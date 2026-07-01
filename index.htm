@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StumBall | Battle the Web</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .cyber-border { border: 1px solid #3b82f6; box-shadow: 0 0 10px rgba(59, 130, 246, 0.5); }
+        .stumble-gradient { background: linear-gradient(135deg, #1e3a8a, #7e22ce); }
+    </style>
+</head>
+<body class="bg-gray-950 text-white font-sans antialiased">
+
+    <nav class="border-b border-gray-800 p-4 flex justify-between items-center bg-gray-900">
+        <div class="flex items-center gap-2">
+            <i class="fas fa-bolt text-blue-500 text-2xl"></i>
+            <h1 class="text-xl font-bold tracking-tighter">STUM<span class="text-blue-400">BALL</span></h1>
+        </div>
+        <div class="flex gap-4 items-center">
+            <span class="text-yellow-400 font-mono"><i class="fas fa-coins mr-1"></i> 1,250 SC</span>
+            <div class="w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center border border-gray-500 cursor-pointer hover:bg-gray-600 transition">
+                <i class="fas fa-user text-xs"></i>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-4xl mx-auto p-6 space-y-8">
+        
+        <!-- Hero Stumble Section -->
+        <section class="stumble-gradient rounded-2xl p-8 text-center cyber-border">
+            <h2 class="text-3xl font-bold mb-4">Discover the Next Web Battle</h2>
+            <p class="text-blue-100 mb-6">Stumble into the unknown. Vote on truth, opinion, or pure design genius.</p>
+            <button onclick="stumble()" class="bg-white text-blue-900 px-8 py-3 rounded-full font-bold hover:scale-105 transition transform flex mx-auto items-center gap-2">
+                <i class="fas fa-dice"></i> STUMBLE NOW
+            </button>
+        </section>
+
+        <!-- Battle Arena -->
+        <div class="grid md:grid-cols-2 gap-6">
+            <div id="battle-area" class="col-span-2 bg-gray-900 p-6 rounded-xl border border-gray-800">
+                <h3 class="text-lg font-semibold mb-4 flex items-center gap-2">
+                    <span class="text-red-500">⚔️</span> Active Battle: News vs Op-Ed
+                </h3>
+                <div class="flex flex-col md:flex-row gap-4">
+                    <div class="flex-1 bg-gray-800 p-4 rounded-lg hover:border-blue-500 border border-transparent transition cursor-pointer" onclick="vote('A')">
+                        <p class="text-xs text-gray-400">PAGE A</p>
+                        <h4 class="font-bold">The Future of AI (Wired)</h4>
+                        <div class="w-full bg-gray-700 h-2 mt-2 rounded-full overflow-hidden">
+                            <div class="bg-blue-500 h-full w-[65%]"></div>
+                        </div>
+                    </div>
+                    <div class="flex-1 bg-gray-800 p-4 rounded-lg hover:border-purple-500 border border-transparent transition cursor-pointer" onclick="vote('B')">
+                        <p class="text-xs text-gray-400">PAGE B</p>
+                        <h4 class="font-bold">Why AI is a Bubble (Substack)</h4>
+                        <div class="w-full bg-gray-700 h-2 mt-2 rounded-full overflow-hidden">
+                            <div class="bg-purple-500 h-full w-[35%]"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Leaderboard -->
+        <section>
+            <h3 class="text-xl font-bold mb-4">Top 2026 Trophies</h3>
+            <div class="bg-gray-900 rounded-xl overflow-hidden border border-gray-800">
+                <table class="w-full text-left">
+                    <thead class="bg-gray-800 text-gray-400 text-sm">
+                        <tr>
+                            <th class="p-3">Rank</th>
+                            <th class="p-3">Category</th>
+                            <th class="p-3">Super Coin Score</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-800">
+                        <tr>
+                            <td class="p-3">#1</td>
+                            <td class="p-3">Global Tech Policy</td>
+                            <td class="p-3 font-mono text-green-400">84.2K</td>
+                        </tr>
+                        <tr>
+                            <td class="p-3">#2</td>
+                            <td class="p-3">Market Speculation</td>
+                            <td class="p-3 font-mono text-green-400">79.1K</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        function stumble() {
+            // Placeholder logic for page redirection
+            console.log("Stumbling to new page...");
+            alert("Redirecting to a random community-voted web page...");
+        }
+
+        function vote(option) {
+            // Update logic for currency and engagement
+            console.log(`Voted for ${option}`);
+            alert("Vote recorded! Currency credited to your profile.");
+        }
+    </script>
+</body>
+</html>
